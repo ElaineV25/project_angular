@@ -2,24 +2,29 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
+import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { CourseListComponent} from './course/course-list.component';
-import { StarComponent } from './star/star.component';
-
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CourseListComponent,
-    StarComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule
+
+      ],
+   imports: [
+     BrowserModule,
+     FormsModule,
+     HttpModule,
+     CourseModule,
+     CoreModule
+     RouterModule.forRoot([
+        {
+          path: '', redirectTo: 'course', pathMatch: 'full'
+        },
+               ]),
+
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule{ }

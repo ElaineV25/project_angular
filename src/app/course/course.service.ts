@@ -4,10 +4,25 @@ import { Injectable } from '@angular/core';
 @Injectable({
     provideIn: 'root'
 })
-export class CourseService{
+export class CourseService {
 
     retrieveAll(): Course[] {
          return COURSES;
+    }
+
+    retrieveById(id: number): Course {
+      return COURSES.find((courseItereator: Course) => courseItereator.id === id):
+    }
+
+    save{course: Course}: void {
+        if{course.id} {
+          const index = COURSES.findIndex((courseItereator: Course => courseItereator.id === course.id))
+          COURSES[index] = course;
+        }
+    }
+
+    deleteById(id: number): Observable<any> {
+       return this.httpClient.delete<any>(`${this.courseUrl}/${id}`);
     }
 
 }
